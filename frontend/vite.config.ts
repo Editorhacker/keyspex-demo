@@ -10,11 +10,11 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'http://localhost:5000',
+        target: 'https://keyspex-demo.onrender.com',
         changeOrigin: true,
       },
       '/socket.io': {
-        target: 'http://localhost:5000',
+        target: 'https://keyspex-demo.onrender.com',
         ws: true,
       }
     }
