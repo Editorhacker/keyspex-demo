@@ -266,7 +266,7 @@ const Analytics: React.FC = () => {
                     {/* ── Header ── */}
                     <header className="an-header">
                         <div className="an-title-block">
-                            <h1>SB <span>Analytics</span></h1>
+                            <h1>KeySpex <span>Analytics</span></h1>
                             <div className="an-live-row">
                                 <span className="an-live-dot" />
                                 System Operational · Live Data
@@ -373,7 +373,7 @@ const Analytics: React.FC = () => {
                                         )}
                                     </Card>
                                     <Card
-                                        title="⚡ SB Coins"
+                                        title="⚡ KeySpex Coins"
                                         desc="Loyalty program leaders"
                                         extra={
                                             <div className="an-toggle">

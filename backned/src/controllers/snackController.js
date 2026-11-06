@@ -74,12 +74,30 @@ module.exports = {
     addSnack: async (req, res) => {
         try {
             const { name, buyingPrice, sellingPrice, quantity } = req.body;
-            if (!name || !buyingPrice || !sellingPrice || !quantity) {
-                return res.status(400).json({ message: 'Missing fields' });
+            const trimmedName = typeof name === 'string' ? name.trim() : '';
+
+            if (
+                !trimmedName ||
+                buyingPrice == null ||
+                sellingPrice == null ||
+                quantity == null ||
+                isNaN(Number(buyingPrice)) ||
+                isNaN(Number(sellingPrice)) ||
+                isNaN(Number(quantity))
+            ) {
+                return res.status(400).json({ message: 'Valid name, buyingPrice, sellingPrice, and quantity are required' });
+            }
+
+            if (Number(sellingPrice) < Number(buyingPrice)) {
+                return res.status(400).json({ message: 'Selling price must be >= buying price' });
+            }
+
+            if (Number(quantity) < 0) {
+                return res.status(400).json({ message: 'Quantity cannot be negative' });
             }
 
             // Check if exists
-            const snapshot = await db.collection('snacks').where('name', '==', name).limit(1).get();
+            const snapshot = await db.collection('snacks').where('name', '==', trimmedName).limit(1).get();
 
             if (!snapshot.empty) {
                 const doc = snapshot.docs[0];
@@ -87,6 +105,7 @@ module.exports = {
                 const newQty = (current.quantity || 0) + parseInt(quantity);
 
                 await db.collection('snacks').doc(doc.id).update({
+                    name: trimmedName,
                     quantity: newQty,
                     buyingPrice: Number(buyingPrice),
                     sellingPrice: Number(sellingPrice),
@@ -94,7 +113,7 @@ module.exports = {
                 });
             } else {
                 await db.collection('snacks').add({
-                    name,
+                    name: trimmedName,
                     buyingPrice: Number(buyingPrice),
                     sellingPrice: Number(sellingPrice),
                     quantity: parseInt(quantity),
@@ -157,16 +176,30 @@ module.exports = {
         try {
             const { id } = req.params;
             const { name, buyingPrice, sellingPrice, quantity } = req.body;
+            const trimmedName = typeof name === 'string' ? name.trim() : '';
 
-            if (!name || buyingPrice == null || sellingPrice == null || quantity == null) {
-                return res.status(400).json({ message: 'Missing fields' });
+            if (
+                !trimmedName ||
+                buyingPrice == null ||
+                sellingPrice == null ||
+                quantity == null ||
+                isNaN(Number(buyingPrice)) ||
+                isNaN(Number(sellingPrice)) ||
+                isNaN(Number(quantity))
+            ) {
+                return res.status(400).json({ message: 'Valid name, buyingPrice, sellingPrice, and quantity are required' });
             }
+
             if (Number(sellingPrice) < Number(buyingPrice)) {
                 return res.status(400).json({ message: 'Selling price must be >= buying price' });
             }
 
+            if (Number(quantity) < 0) {
+                return res.status(400).json({ message: 'Quantity cannot be negative' });
+            }
+
             await db.collection('snacks').doc(id).update({
-                name,
+                name: trimmedName,
                 buyingPrice: Number(buyingPrice),
                 sellingPrice: Number(sellingPrice),
                 quantity: Number(quantity),

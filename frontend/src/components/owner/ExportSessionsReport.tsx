@@ -47,11 +47,11 @@ export const useSessionExport = (monthKey?: string, timeFilter?: string) => {
             // 1. Create a new Workbook
             const wb = XLSX.utils.book_new();
 
-            // 2. Build the title row: "SB GAMING DATABASE [ MONTH NAME ]"
+            // 2. Build the title row: "KEYSPEX DATABASE [ MONTH NAME ]"
             const monthLabel = monthKey
                 ? monthKeyToLabel(monthKey).toUpperCase()
                 : new Date().toLocaleString('default', { month: 'long', year: 'numeric' }).toUpperCase();
-            const titleText = `SB GAMING DATABASE [ ${monthLabel} ]`;
+            const titleText = `KEYSPEX DATABASE [ ${monthLabel} ]`;
 
             // 3. Convert JSON to Sheet — prepend title rows
             const ws = XLSX.utils.json_to_sheet([]);

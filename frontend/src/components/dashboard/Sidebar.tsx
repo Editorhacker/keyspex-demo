@@ -155,7 +155,7 @@ const Sidebar = ({ isCollapsed = false, toggleCollapsed, isMobile = false, isMob
                 exit={{ opacity: 0, width: 0 }}
                 transition={{ duration: 0.2 }}
               >
-                SB <br /><span className="highlight">Max</span> 
+                Key<br /><span className="highlight">Spex</span> 
               </motion.div>
             )}
           </AnimatePresence>

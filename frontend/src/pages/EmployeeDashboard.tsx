@@ -17,7 +17,7 @@ const EmployeeDashboard = () => {
 
 
                 <footer className="dashboard-footer">
-                    &copy; 2024 SB Gaming Cafe Management System
+                    &copy; 2024 KeySpex Management System
                 </footer>
             </div>
         </DashboardLayout>

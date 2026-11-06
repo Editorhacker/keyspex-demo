@@ -91,9 +91,9 @@ const Login = () => {
                 {/* Scrolling Marquee Background */}
                 <div className="marquee-container">
                     <div className="marquee">
-                        <span>SB</span>
-                        <span className="stroke-text">MAX</span>
-                        <span>SB</span>
+                        <span>KEY</span>
+                        <span className="stroke-text">SPEX</span>
+                        <span>KEY</span>
                         <span className="stroke-text">MANAGEMENT</span>
                     </div>
                     <div className="marquee reverse">
@@ -131,7 +131,7 @@ const Login = () => {
                         transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
                     >
                         <div className="mobile-only-header">
-                            <h2>SB</h2>
+                            <h2>KeySpex</h2>
                         </div>
 
                         <div className="auth-header-wrapper">

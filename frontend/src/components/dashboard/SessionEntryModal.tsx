@@ -566,7 +566,7 @@ const SessionEntryModal: React.FC<Props> = ({ isOpen, onClose }) => {
                                     </div>
 
                                     <div className="field-group">
-                                        <label className="field-label">SB Coins</label>
+                                        <label className="field-label">KeySpex Coins</label>
                                         <div
                                             className="field-input"
                                             style={{
@@ -608,7 +608,7 @@ const SessionEntryModal: React.FC<Props> = ({ isOpen, onClose }) => {
                                                 transition: "0.2s"
                                             }}
                                         >
-                                            {coinsApplied ? "Cancel SB Coins" : "Apply SB Coins"}
+                                            {coinsApplied ? "Cancel KeySpex Coins" : "Apply KeySpex Coins"}
                                         </button>
                                         {coinsApplied && (
                                             <div style={{ fontSize: 12, color: "#22c55e", fontWeight: 500 }}>
@@ -676,7 +676,7 @@ const SessionEntryModal: React.FC<Props> = ({ isOpen, onClose }) => {
                                     {/* Thunder coin discount */}
                                     {coinDiscount > 0 && (
                                         <div style={{ fontSize: 12, color: "#22c55e", fontWeight: 600 }}>
-                                            ⚡ SB Coins Discount: -₹{coinDiscount}
+                                            ⚡ KeySpex Coins Discount: -₹{coinDiscount}
                                         </div>
                                     )}
 

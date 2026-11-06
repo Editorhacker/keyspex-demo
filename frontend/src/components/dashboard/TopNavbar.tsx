@@ -114,7 +114,7 @@ const TopNavbar = ({ onMenuClick }: TopNavbarProps) => {
         )}
 
         <div className="cafe-title">
-          SB GAME MAX
+          KeySpex DEMO ACCOUNT
         </div>
 
         {/* 🔍 Addictive Minimal Search Trigger */}
